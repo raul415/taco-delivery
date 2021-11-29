@@ -1,0 +1,323 @@
+/* page layout */
+/* global setting */
+body {
+    margin: 0 0 10vw 0;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    display: block;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* name of the game */
+#name h1 {
+    color: white;
+    font-size: 5vw;
+    background-color: red;
+    padding: 3vw;
+    margin: 0;
+}
+
+/* status of game */
+#stats div{
+    margin: 0;
+    font-size: 3vw;
+    display: inline-block;
+}
+
+#stats .white-space {
+    width: 20vw;
+}
+
+#score p {
+    display: inline-block;
+}
+
+#heart ul li {
+    display: inline-block;
+}
+
+#heart li img {
+    width: 5vw;
+}
+
+/* display game window */
+#game-window {
+    width: 100vw;
+    height: 45vw;
+    margin: 0;
+}
+/* end of page layout */
+/* place elements in the game window */
+@keyframes move-left {
+    from {
+        left: 100vw;
+    }
+    to {
+        left: -100vw;
+    }
+}
+
+/* bunny movements */
+@keyframes jump {
+    0% {top: 60vw}
+    40% {top: 40vw}
+    60% {top: 40vw}
+    80% {top: 50vw}
+    100% { top: 60vw}
+}
+
+@keyframes smack {
+    from {
+        background-image: url("../asset/bunny/b3.gif");
+    }
+    to {
+        background-image: url("../asset/bunny/b3.gif");
+    }
+}
+
+@keyframes run-with-chancla {
+    from {
+        background-image: url("../asset/bunny/b2.gif");
+    }
+    to {
+        background-image: url("../asset/bunny/b2.gif");
+    }
+}
+/* end of bunny movements */
+
+@keyframes tornado {
+    0% {
+        left: 85vw;
+        top: 23vw;
+        transform: scale(1);
+    }
+    85% {
+        left: 5vw;
+        top: 35vw;
+        transform: scale(2.5);
+    }
+    100% {
+        left: -10vw;
+        top: 23vw;
+        transform: scale(1);
+    }
+}
+
+@keyframes chancla {
+    0% {
+        left: 85vw;
+        top: 28vw;
+        transform: scale(0.3);
+    }
+    85% {
+        left: 7vw;
+        top: 45vw;
+        transform: scale(1);
+    }
+    100% {
+        left: 7vw;
+        top: 57vw;
+        transform: scale(0.2);
+    }
+}
+
+@keyframes drop-poop {
+    from {
+        left: 100vw;
+        top: 30vw;
+        transform: scale(0.5);
+    }
+    to {
+        left: 7vw;
+        top: 58vw;
+        transform: scale(1);
+    }
+}
+
+@keyframes shoot-poop {
+    from {
+        left: 8vw;
+        top: 60vw;
+    }
+    to {
+        left: 100vw;
+        top: 60vw;
+    }
+}
+
+@keyframes noice {
+    0% {
+        opacity: 1;
+        background-image: url("../asset/bunny/noice.png");
+    }
+    25% {
+        opacity: 0;
+        background-image: url("../asset/bunny/noice.png");
+    }
+    50% {
+        opacity: 1;
+        background-image: url("../asset/bunny/noice.png");
+    }
+    75% {
+        opacity: 0;
+        background-image: url("../asset/bunny/noice.png");
+    }
+    100% {
+        opacity: 1;
+        background-image: url("../asset/bunny/noice.png");
+    }
+}
+
+/* background */
+.background-img {
+    position: relative;
+    margin: auto;
+}
+
+#bg, #bgr, #bgm1, #bgs, #bgm2, #bgm3, #cd {
+    position: absolute;
+}
+
+.background-img img {
+    width: 100vw;
+    object-fit: cover;
+}
+
+#cd {
+    animation: move-left linear 100s infinite running;
+}
+
+#bgm1 {
+    animation: move-left linear 50s infinite running;
+}
+
+#bgm2 {
+    animation: move-left linear 30s infinite running;
+}
+
+#bgm3 {
+    animation: move-left linear 10s infinite running;
+}
+
+/* bunny */
+#bunny {
+    position: absolute;
+    top: 60vw;
+    left: 8vw;
+    width: 5vw;
+    height: 5vw;
+
+    /*border: red solid 2px;*/
+
+    background-image: url("../asset/bunny/b1.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 7vw;
+}
+
+.equip-chancla {
+    animation: run-with-chancla 2s infinite;
+}
+
+.bunny-smack {
+    animation: smack 1s;
+}
+
+.bunny-jump {
+    animation: jump 0.5s;
+}
+
+/* duck */
+#duck {
+    position: absolute;
+    top: 60vw;
+    left: 100vw;
+    width: 5vw;
+    height: 5vw;
+    /*border: red solid 2px;*/
+    background-image: url("../asset/duck/d.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 6vw;
+
+    animation: move-left linear 1.7s infinite running;
+}
+
+/* bird */
+#bird, #poop {
+    position: absolute;
+    top: 30vw;
+    left: 100vw;
+    width: 5vw;
+    height: 5vw;
+    /*border: red solid 2px;*/
+}
+
+.bird {
+    background-image: url("../asset/bird/b1.png");
+    background-size: 5vw;
+    animation: move-left ease-in-out 7s infinite running;
+}
+
+.poop {
+    background-image: url("../asset/bird/p1.png");
+    background-size: 7vw;
+    animation: drop-poop ease-in-out 7s infinite running;
+}
+
+.defense {
+    background-image: url("../asset/bird/p1.png");
+    background-size: 7vw;
+    animation: shoot-poop ease-out 1s infinite running;
+}
+
+/* tornado */
+#tornado {
+    position: absolute;
+    top: 23vw;
+    left: 100vw;
+    width: 10vw;
+    height: 10vw;
+}
+
+.drop-chancla-1 {
+    background-image: url("../asset/tornado/t.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 10vw;
+
+    animation: tornado 5s;
+}
+
+/* chancla */
+#chancla {
+    position: absolute;
+    top: 32vw;
+    left: 100vw;
+    width: 10vw;
+    height: 10vw;
+}
+
+.drop-chancla-2 {
+    background-image: url("../asset/chancla/c.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 10vw;
+
+    animation: chancla 5s;
+}
+
+/* noice */
+#nice {
+    position: absolute;
+    margin: 15vw 43vw;
+    /*border: white solid 2px;*/
+    width: 20vw;
+    height: 10vw;
+}
+
+.noice {
+    background-size: 20vw;
+    animation: noice 2s linear infinite running;
+}
